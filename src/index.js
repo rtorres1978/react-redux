@@ -4,11 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Redux Imports:
+import { Provider } from 'react-redux';
+// Import Config Function of App Store
+import {createAppStore} from './store/config/storeConfig';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// We create the App Store
+let appStore = createAppStore();
+
 root.render(
-  <React.StrictMode>
+// Se aumento provider es porposionar un store a toda nuestra aplicacion
+  <Provider store={appStore}>
+
+ <React.StrictMode>
     <App />
   </React.StrictMode>
+
+  </Provider>
+
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function
